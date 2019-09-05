@@ -1,0 +1,9 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Api de Busca - Refeições, Variações e Restaurantes
+            description: Esse microserviço é responsavel por cadastrar e buscar váriações de refeições e restaurantes
+            version: 1.0.0
+    areas: # to filter documented areas
+        path_patterns:
+            - ^/api(?!/doc$) # Accepts routes under /api except /api/doc

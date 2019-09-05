@@ -1,0 +1,61 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/Resources/doc/setup.md
+fos_elastica:
+    clients:
+        default: { host: elasticsearch }
+    indexes:
+        app:
+            client: default
+            index_name: app_%kernel.environment%
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            keyword_analyzer: # this is a custom analyzer, see the explanations below
+                                type: custom
+                                tokenizer: standard
+                                filter: [standard, lowercase, asciifolding, trim]
+            types:
+                variationMeal:
+                    properties:
+                        variationId:
+                            type: integer
+                        mealName: &br_text
+                            analyzer: brazilian
+                            type: text
+                        mealDescription: *br_text
+                        name: *br_text
+                        description: *br_text
+                        mealId:
+                            type: integer
+                        price:
+                            type: float
+                        image: *br_text
+                        position:
+                            type: integer
+                        slug: *br_text
+                        categoryName: *br_text
+                        categorySlug: *br_text
+                        status: *br_text
+                        restaurantId:
+                            type: integer
+                        restaurantName: *br_text
+                        restaurantSlug: *br_text
+                        score:
+                            type: integer
+                        street: *br_text
+                        number:
+                            type: integer
+                        neighborhood: *br_text
+                        cep:
+                            type: integer
+                        city: *br_text
+                        uf: *br_text
+                        location:
+                            type: text
+                    persistence:
+                        driver: mongodb
+                        model: App\Document\VariationMeal
+                        finder: ~
+                        provider: ~
+                        listener: ~
+                        repository: App\SearchRepository\VariationMealRepository
