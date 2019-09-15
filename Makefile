@@ -2,7 +2,7 @@
 include .env
 export $(shell sed 's/=.*//' .env)
 SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
-PHP_SERVICE := docker-compose exec $$PROJECT_NAME.php sh -c
+PHP_SERVICE := docker exec $$PROJECT_NAME.php sh -c
 PHP_BASH := docker exec -i -t $$PROJECT_NAME.php bash
 PROJECT_PATH := /src
 ##
@@ -41,6 +41,12 @@ console: ## install symfony
 sf-install: ## install symfony
 	$(PHP_SERVICE) "cd /src/ && composer create-project symfony/skeleton api && cp -a api/. . && rm -rf api/"
 	$(PHP_SERVICE) "composer install --optimize-autoloader --prefer-dist --working-dir=$(PROJECT_PATH)"
+
+composer_install: ## install symfony
+	$(PHP_SERVICE) "cd /src/ && composer install"
+
+populate:
+	$(PHP_SERVICE) "cd /src/ && bin/console fos:elastica:populate"
 
 sf-cache: ## Flush the Symfony cache
 	$(PHP_SERVICE) "cd /src/ && bin/console cache:clear"
