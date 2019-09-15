@@ -29,3 +29,8 @@ chmod 777 -R elasticsearch
 cd ..
 
 make up
+
+make populate
+make populate
+make populate
+make populate
