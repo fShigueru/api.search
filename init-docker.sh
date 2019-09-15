@@ -5,16 +5,6 @@ echo "PROJECT_NAME=api.restaurant.search" >> .env
 
 docker network create hackathon
 
-mkdir .data
-
-cd .data/
-
-mkdir elasticsearch
-
-chown -R 1000:root elasticsearch
-
-cd ..
-
 make up
 
 cd src
@@ -27,5 +17,15 @@ wget -O $filename 'https://docs.google.com/uc?export=download&id='$fileid
 cd ..
 
 make composer_install
+
+make down
+
+cd .data/
+
+chown -R 1000:root elasticsearch
+
+chmod 777 -R elasticsearch
+
+make up
 
 chmod 777 -R src/var/.*
