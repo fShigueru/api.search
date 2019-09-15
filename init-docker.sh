@@ -18,6 +18,4 @@ cd ..
 
 make composer_install
 
-make migrate
-
 chmod 777 -R src/var/.*
