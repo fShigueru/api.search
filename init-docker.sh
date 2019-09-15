@@ -5,6 +5,14 @@ echo "PROJECT_NAME=api.restaurant.search" >> .env
 
 docker network create hackathon
 
+mkdir ./data/elasticsearch/
+
+cd ./data/
+
+chown -R 1000:root elasticsearch
+
+cd ..
+
 make up
 
 cd src

@@ -39,7 +39,6 @@ class VariationMealService
         $variationMeal->setCategoryName($request->get('categoryName'));
         $variationMeal->setCategorySlug($request->get('categorySlug'));
         $variationMeal->setStatus($request->get('status'));
-        $variationMeal->setStatus($request->get('status'));
         $variationMeal->setRestaurantId($request->get('restaurantId'));
         $variationMeal->setRestaurantName($request->get('restaurantName'));
         $variationMeal->setRestaurantSlug($request->get('restaurantSlug'));
