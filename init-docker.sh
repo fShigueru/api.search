@@ -32,5 +32,8 @@ make up
 
 make populate
 make populate
+
+make ps
+
 make populate
 make populate
