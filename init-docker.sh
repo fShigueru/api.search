@@ -30,10 +30,11 @@ cd ..
 
 make up
 
-make populate
+chmod 777 -R src/var/.*
+
 make populate
 
 make ps
 
 make populate
-make populate
+
