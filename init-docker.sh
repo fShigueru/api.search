@@ -26,4 +26,6 @@ chown -R 1000:root elasticsearch
 
 chmod 777 -R elasticsearch
 
+cd ..
+
 make up
