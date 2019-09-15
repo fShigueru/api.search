@@ -27,5 +27,3 @@ chown -R 1000:root elasticsearch
 chmod 777 -R elasticsearch
 
 make up
-
-chmod 777 -R src/var/.*
